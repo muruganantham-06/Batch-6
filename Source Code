@@ -1,0 +1,23 @@
+import pandas as pd
+import random
+
+# Create fake data
+users = [f'User{i}' for i in range(1, 11)]
+movies = ['Inception', 'Avatar', 'Titanic', 'Avengers', 'Interstellar', 'Matrix', 'Joker', 'Frozen']
+data = []
+
+for _ in range(80):
+    user = random.choice(users)
+    movie = random.choice(movies)
+    rating = random.randint(1, 5)
+    data.append([user, movie, rating])
+
+# Create DataFrame
+df = pd.DataFrame(data, columns=['User', 'Movie', 'Rating'])
+
+# Show all data
+print(df)
+
+# Save to CSV
+df.to_csv("full_movie_ratings_80.csv", index=False)
+print("Saved full dataset to full_movie_ratings_80.csv")
